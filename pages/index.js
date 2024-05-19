@@ -23,6 +23,7 @@ export default function Home({ newsResults, randomUsersResults }) {
 
         {/* Widgets */}
 
+
         <Widgets
           newsResults={newsResults.articles}
           randomUsersResults={randomUsersResults.results}
