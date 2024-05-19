@@ -1,3 +1,4 @@
+
 import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "../atom/modalAtom";
 import { useRouter } from "next/router";
@@ -39,6 +40,7 @@ export default function CommentModal() {
       username: session.user.username,
       userImg: session.user.image,
       timestamp: serverTimestamp(),
+      userId: session.user.uid,
     });
 
     setOpen(false);
@@ -52,10 +54,10 @@ export default function CommentModal() {
         <Modal
           isOpen={open}
           onRequestClose={() => setOpen(false)}
-          className="max-w-lg w-[90%]  absolute top-24 left-[50%] translate-x-[-50%] bg-white border-2 border-gray-300 rounded-xl shadow-md"
+          className="max-w-lg w-[90%]  absolute top-24 left-[50%] translate-x-[-50%] bg-white border-2 border-gray-200 rounded-xl shadow-md"
         >
           <div className="p-1">
-            <div className="border-b border-gray-300 py-2 px-1.5">
+            <div className="border-b border-gray-200 py-2 px-1.5">
               <div
                 onClick={() => setOpen(false)}
                 className="hoverEffect w-10 h-10 flex items-center justify-center"
@@ -90,7 +92,7 @@ export default function CommentModal() {
                 alt="user-img"
                 className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
               />
-              <div className="w-full divide-y divide-gray-300">
+              <div className="w-full divide-y divide-gray-200">
                 <div className="">
                   <textarea
                     className="w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700"

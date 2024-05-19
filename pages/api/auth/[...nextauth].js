@@ -11,10 +11,11 @@ export default NextAuth({
     // ...add more providers here
   ],
 
-  
   pages: {
     signIn: "/auth/signin",
   },
+  
+  secret: process.env.SECRET,
 
   callbacks: {
     async session({ session, token }) {
