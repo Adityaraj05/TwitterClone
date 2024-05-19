@@ -15,7 +15,7 @@ export default NextAuth({
     signIn: "/auth/signin",
   },
   
-  secret: process.env.SECRET,
+  secret: process.env.SECRET_KEY,
 
   callbacks: {
     async session({ session, token }) {
