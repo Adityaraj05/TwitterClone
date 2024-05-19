@@ -93,6 +93,7 @@ export default function CommentModal() {
                 className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
               />
               <div className="w-full divide-y divide-gray-200">
+              
                 <div className="">
                   <textarea
                     className="w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700"
