@@ -69,23 +69,23 @@ export default function PostPage({ newsResults, randomUsersResults }) {
           <Post id={id} post={post} />
           {comments.length > 0 && (
             <div className="">
-              <AnimatePresence>
-                {comments.map((comment) => (
-                  <motion.div
-                    key={comment.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1 }}
-                  >
-                    <Comment
-                      key={comment.id}
-                      commentId={comment.id}
-                      originalPostId={id}
-                      comment={comment.data()}
-                    />
-                  </motion.div>
-                ))}
+            <AnimatePresence>
+              {comments.map((comment) => (
+                <motion.div
+            key={comment.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}>
+          
+                <Comment
+                  key={comment.id}
+                  commentId={comment.id}
+                  originalPostId={id}
+                  comment={comment.data()}
+                />
+                </motion.div>
+              ))}
               </AnimatePresence>
             </div>
           )}
@@ -115,17 +115,9 @@ export async function getServerSideProps() {
 
   // Who to follow section
 
-  let randomUsersResults = [];
-
-  try {
-    const res = await fetch(
-      "https://randomuser.me/api/?results=30&inc=name,login,picture"
-    );
-
-    randomUsersResults = await res.json();
-  } catch (e) {
-    randomUsersResults = [];
-  }
+  const randomUsersResults = await fetch(
+    "https://randomuser.me/api/?results=30&inc=name,login,picture"
+  ).then((res) => res.json());
 
   return {
     props: {
